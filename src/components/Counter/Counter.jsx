@@ -1,23 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 
-class Counter extends Component {
-  static propTypes = {
-    value: PropTypes.number.isRequired,
-    onIncrement: PropTypes.func.isRequired,
-    onDecrement: PropTypes.func.isRequired
-  };
+const Counter = ({ count, increment, decrement }) => (
+  <div>
+    <p>Counter: {count}</p>
+    <button onClick={decrement}>-</button>
+    <button onClick={increment}>+</button>
+  </div>
+);
 
-  render() {
-    const {
-      value,
-      onIncrement,
-      onDecrement
-    } = this.props;
-
-    return (
-      <p>Counter</p>
-    );
-  }
-}
+Counter.propTypes = {
+  count: PropTypes.number.isRequired,
+  increment: PropTypes.func,
+  decrement: PropTypes.func
+};
 
 export default Counter;

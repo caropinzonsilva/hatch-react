@@ -4,9 +4,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Root from './components/Root/Root.jsx';
+import App from './containers/App/App.jsx';
+import reducer from './reducers/index.js';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
-  <Root />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('app')
 );
