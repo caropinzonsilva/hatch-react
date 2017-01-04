@@ -1,18 +1,24 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as CounterActions from '../../actions/index.js';
+
+import Container from '../../components/Container/Container.jsx';
 import Header from '../../components/Header/Header.jsx';
 import Counter from '../../components/Counter/Counter.jsx';
-import * as CounterActions from '../../actions/index.js';
 
 const App = ({ count, actions }) => (
   <div>
-    <Header />
-    <Counter
-      count={count}
-      increment={actions.increment}
-      decrement={actions.decrement}
-    />
+    <Container>
+      <Header />
+    </Container>
+    <Container>
+      <Counter
+        count={count}
+        increment={actions.increment}
+        decrement={actions.decrement}
+      />
+    </Container>
   </div>
 );
 
