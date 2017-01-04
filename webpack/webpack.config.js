@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     publicPath: '/dist/',
-    filename: 'index.bundle.js',
+    filename: 'index.bundle.js'
   },
   module: {
     loaders: [
@@ -32,6 +32,11 @@ module.exports = {
           'sass-loader'
         ]
       },
+    ]
+  },
+  sassLoader: {
+    includePaths: [
+      path.join(__dirname, '../src/styles')
     ]
   },
   plugins: [
