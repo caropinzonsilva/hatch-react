@@ -1,6 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Counter.scss';
 
-import React from 'react';
 
 const Counter = ({ count, increment, decrement }) => (
   <div className="Counter">
@@ -12,5 +13,11 @@ const Counter = ({ count, increment, decrement }) => (
     </div>
   </div>
 );
+
+Counter.propTypes = {
+  count: PropTypes.number.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
+};
 
 export default Counter;
