@@ -17,7 +17,7 @@ const Counter = ({ count, increment, decrement }) => (
 Counter.propTypes = {
   count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired
 };
 
 export default Counter;

@@ -27,19 +27,19 @@ App.propTypes = {
   count: PropTypes.number.isRequired,
   actions: PropTypes.shape({
     increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-  }).isRequired,
+    decrement: PropTypes.func.isRequired
+  }).isRequired
 };
 
 const mapStateToProps = state => ({
-  count: state.count,
+  count: state.count
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(CounterActions, dispatch),
+  actions: bindActionCreators(CounterActions, dispatch)
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(App);
