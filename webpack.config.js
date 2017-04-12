@@ -9,8 +9,7 @@ module.exports = {
     publicPath: '/dist/'
   },
   module: {
-    rules: [
-    {
+    rules: [{
       enforce: 'pre',
       test: /\.jsx?$/,
       use: 'eslint-loader',
