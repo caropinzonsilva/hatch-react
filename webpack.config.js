@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
@@ -37,6 +38,11 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
+    }),
+    new styleLintPlugin({
+      configFile: path.join(__dirname, '', '.stylelintrc'),
+      files: '**/*.?(sa|sc|c)ss',
+      context: path.join(__dirname, '', 'src')
     })
   ],
   devServer: {
