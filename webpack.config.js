@@ -40,9 +40,9 @@ module.exports = {
       }
     }),
     new styleLintPlugin({
-      configFile: path.join(__dirname, '', '.stylelintrc'),
+      configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
-      context: path.join(__dirname, '', 'src')
+      context: path.join(__dirname, 'src')
     })
   ],
   devServer: {
