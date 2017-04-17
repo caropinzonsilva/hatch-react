@@ -9,7 +9,8 @@
     @media (min-width: map-get($breakpoints, $size)) {
       @content;
     }
-  } @else {
+  }
+  @else {
     @warn "$size doesn't exist in $breakpoints.";
   }
 }
