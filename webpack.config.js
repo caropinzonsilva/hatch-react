@@ -47,13 +47,9 @@ module.exports = {
       test: /\.jsx?$/,
       options: {
         eslint: {
-          failOnWarning: false,
-          failOnError: false,
-          fix: false,
-          quiet: false,
           // eslint emit warning instead of errors to allow webpack to build
-          emitWarning: true,
-        },
+          emitWarning: true
+        }
       }
     }),
   ],
