@@ -1,7 +1,9 @@
-const path = require('path');
-const webpack = require('webpack');
+import webpack from 'webpack';
+import merge from 'webpack-merge';
+import path from 'path';
+import * as configs from './webpack';
 
-module.exports = {
+const commonConfig = {
   entry: path.join(__dirname, 'src/index.jsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,25 +38,19 @@ module.exports = {
         }
       }]
     }]
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          // eslint emit warning instead of errors to allow webpack to build
-          emitWarning: true
-        }
-      }
-    })
-  ],
-  devServer: {
-    host: 'localhost',
-    port: '3000'
   }
 };
+
+const environmentConfig = (() => {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return configs.production;
+    case 'staging':
+      return configs.staging;
+    case 'development':
+    default:
+      return configs.development;
+  }
+})();
+
+export default merge(commonConfig, environmentConfig);
