@@ -1,15 +1,16 @@
-import * as types from '../constants/ActionTypes.js';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
 
 export function increment(count) {
   return {
-    type: types.INCREMENT,
+    type: INCREMENT,
     count
   };
 }
 
 export function decrement(count) {
   return {
-    type: types.DECREMENT,
+    type: DECREMENT,
     count
   };
 }
