@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../../actions/index.js';
@@ -21,6 +22,14 @@ const App = ({ count, actions }) => (
     </Container>
   </div>
 );
+
+App.propTypes = {
+  count: PropTypes.number.isRequired,
+  actions: PropTypes.shape({
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired
+  }).isRequired
+};
 
 const mapStateToProps = state => ({
   count: state.count
