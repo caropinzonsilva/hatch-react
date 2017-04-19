@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import merge from'webpack-merge';
+import merge from 'webpack-merge';
 import path from 'path';
 import * as configs from './webpack';
 
