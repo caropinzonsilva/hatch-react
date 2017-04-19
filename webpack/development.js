@@ -7,6 +7,14 @@ export default {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
+    new webpack.LoaderOptionsPlugin({
+      test: /\.jsx?$/,
+      options: {
+        eslint: {
+          emitWarning: true
+        }
+      }
+    }),
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {

@@ -38,28 +38,16 @@ const commonConfig = {
         }
       }]
     }]
-  },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          // eslint emit warning instead of errors to allow webpack to build
-          emitWarning: true
-        }
-      }
-    })
-  ]
+  }
 };
 
 const environmentConfig = (() => {
   switch (process.env.NODE_ENV) {
-    case 'development':
-      return configs.development;
-    case 'staging':
-      return configs.staging;
     case 'production':
       return configs.production;
+    case 'staging':
+      return configs.staging;
+    case 'development':
     default:
       return configs.development;
   }
