@@ -51,7 +51,7 @@ module.exports = {
           emitWarning: true
         }
       }
-    }),
+    })
   ],
   devServer: {
     host: 'localhost',
