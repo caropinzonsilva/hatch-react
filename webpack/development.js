@@ -1,19 +1,10 @@
 import webpack from 'webpack';
-import path from 'path';
 
 export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          emitWarning: true
-        }
       }
     }),
     new webpack.HotModuleReplacementPlugin()

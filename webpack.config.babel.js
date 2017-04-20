@@ -4,6 +4,8 @@ import path from 'path';
 import styleLintPlugin from 'stylelint-webpack-plugin';
 import * as configs from './webpack';
 
+const ENV = process.env.NODE_ENV;
+
 const commonConfig = {
   entry: path.join(__dirname, 'src/index.jsx'),
   output: {
@@ -45,13 +47,22 @@ const commonConfig = {
       configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
       context: path.join(__dirname, 'src'),
-      emitErrors: process.env.NODE_ENV === 'development' ? false : true
+      emitErrors: ENV === 'development' ? false : true
+    }),
+    new webpack.LoaderOptionsPlugin({
+      test: /\.jsx?$/,
+      options: {
+        eslint: {
+          emitWarning: ENV === 'development' ? true : false,
+          emitError: (ENV === 'production' || ENV === 'staging') ? true : false
+        }
+      }
     })
   ]
 };
 
 const environmentConfig = (() => {
-  switch (process.env.NODE_ENV) {
+  switch (ENV) {
     case 'production':
       return configs.production;
     case 'staging':

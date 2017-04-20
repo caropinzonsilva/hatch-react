@@ -6,14 +6,6 @@ export default {
       'process.env': {
         'NODE_ENV': JSON.stringify('staging')
       }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          emitError: true
-        }
-      }
     })
   ]
 };
