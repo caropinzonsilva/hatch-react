@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import path from 'path';
+import styleLintPlugin from 'stylelint-webpack-plugin';
 import * as configs from './webpack';
 
 const commonConfig = {
@@ -38,7 +39,14 @@ const commonConfig = {
         }
       }]
     }]
-  }
+  },
+  plugins: [
+    new styleLintPlugin({
+      configFile: path.join(__dirname, '.stylelintrc'),
+      files: '**/*.?(sa|sc|c)ss',
+      context: path.join(__dirname, 'src')
+    })
+  ]
 };
 
 const environmentConfig = (() => {
