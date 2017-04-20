@@ -44,7 +44,8 @@ const commonConfig = {
     new styleLintPlugin({
       configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
-      context: path.join(__dirname, 'src')
+      context: path.join(__dirname, 'src'),
+      emitErrors: process.env.NODE_ENV === 'development' ? false : true
     })
   ]
 };
