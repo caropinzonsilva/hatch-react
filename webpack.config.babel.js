@@ -2,7 +2,6 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 import path from 'path';
 import styleLintPlugin from 'stylelint-webpack-plugin';
-
 import * as configs from './webpack';
 
 const ENV = process.env.NODE_ENV;
