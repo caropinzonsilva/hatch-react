@@ -12,14 +12,18 @@
       "es6": true
     }
   },
+  "globals": {
+    "window": true
+  },
   "env": {
     "browser": true
   },
   "rules": {
     "comma-dangle": ["error", "never"],
+    "no-underscore-dangle": 0,
     "import/extensions": 0,
-    "react/prefer-stateless-function": 0,
     "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "react/prefer-stateless-function": 0
   }
 }
