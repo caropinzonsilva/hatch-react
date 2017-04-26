@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Container from 'components/Container/Container.jsx';
 import Header from 'components/Header/Header.jsx';
 import Counter from 'components/Counter/Counter.jsx';
-import { increment, decrement } from '../../actions/count.js';
+import { increment, decrement } from 'actions/count.js';
 
 class App extends Component {
   render() {
