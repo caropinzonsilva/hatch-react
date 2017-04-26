@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { increment, decrement } from '../../actions/count.js';
-import Container from '../../components/Container/Container.jsx';
-import Header from '../../components/Header/Header.jsx';
-import Counter from '../../components/Counter/Counter.jsx';
+import Container from 'components/Container/Container.jsx';
+import Header from 'components/Header/Header.jsx';
+import Counter from 'components/Counter/Counter.jsx';
+import { increment, decrement } from 'actions/count.js';
 
 class App extends Component {
   render() {

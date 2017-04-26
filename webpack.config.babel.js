@@ -42,6 +42,9 @@ const commonConfig = {
       }]
     }]
   },
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+  },
   plugins: [
     new styleLintPlugin({
       configFile: path.join(__dirname, '.stylelintrc'),
