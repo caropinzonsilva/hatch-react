@@ -3,23 +3,24 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducer from './reducers/index.js';
 
-let composeEnhancers = compose;
-if (process.env.NODE_ENV !== 'production' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-    name: 'MyApp', actionsBlacklist: ['REDUX_STORAGE_SAVE']
-  });
-}
 
 function configureStore(initialState) {
   const middlewares = [thunk];
+  let enhancer = applyMiddleware(...middlewares);
+
+  /* eslint-disable no-underscore-dangle */
+  // https://github.com/zalmoxisus/redux-devtools-extension#usage
+  if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+    enhancer = compose(
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
+      enhancer
+    );
+  }
+  /* eslint-enable */
+
   if (process.env.NODE_ENV !== 'production') {
     middlewares.push(createLogger());
   }
-
-  const enhancer = composeEnhancers(
-    applyMiddleware(...middlewares),
-  );
 
   return createStore(
     reducer,
