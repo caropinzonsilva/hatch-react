@@ -14,7 +14,6 @@ export default {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    overlay: true,
     port: '3000'
   },
   devtool: 'cheap-eval-source-map',
