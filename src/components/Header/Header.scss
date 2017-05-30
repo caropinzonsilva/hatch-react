@@ -1,13 +1,14 @@
 @import "config.variables";
+@import "config.functions";
 
 .Header {
-  padding: 2rem;
+  padding: gutter(lg) 0;
   background-color: $color-grey--9;
   text-align: center;
 }
 
 .Header-title {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 gutter(xs) 0;
   padding: 0;
   color: #fff;
 }
