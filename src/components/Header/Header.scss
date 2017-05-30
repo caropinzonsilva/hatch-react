@@ -1,13 +1,21 @@
+@import "config.variables";
+
 .Header {
+  padding: 2rem;
+  background-color: $color-grey--9;
   text-align: center;
 }
 
 .Header-title {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   padding: 0;
+  color: #fff;
 }
 
 .Header-subTitle {
   margin: 0;
   padding: 0;
+  color: $color-grey--5;
+  font-style: italic;
+  text-transform: lowercase;
 }
