@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Counter.scss';
+import 'components/Counter/Counter.scss';
 
 
 const Counter = ({ count, increment, decrement }) => (
