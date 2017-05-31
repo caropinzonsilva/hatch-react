@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from 'containers/App/App.jsx';
+import HomeView from 'views/HomeView/HomeView.jsx';
 import configureStore from 'configureStore.js';
 import 'styles.scss';
 
@@ -9,7 +9,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <HomeView />
   </Provider>,
   document.getElementById('app')
 );

@@ -3,30 +3,25 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducer from 'reducers/index.js';
 
-
-function configureStore(initialState) {
+function configureStore() {
   const middlewares = [thunk];
-  let enhancer = applyMiddleware(...middlewares);
-
-  /* eslint-disable no-underscore-dangle */
-  // https://github.com/zalmoxisus/redux-devtools-extension#usage
-  if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
-    enhancer = compose(
-      window.__REDUX_DEVTOOLS_EXTENSION__(),
-      enhancer
-    );
-  }
-  /* eslint-enable */
 
   if (process.env.NODE_ENV !== 'production') {
     middlewares.push(createLogger());
   }
 
-  return createStore(
-    reducer,
-    initialState,
-    enhancer
+  /* eslint-disable no-underscore-dangle */
+  const composeEnhancers = typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
+    compose;
+  /* eslint-enable */
+
+  const enhancer = composeEnhancers(
+    applyMiddleware(...middlewares)
   );
+
+  return createStore(reducer, enhancer);
 }
 
 export default configureStore;
