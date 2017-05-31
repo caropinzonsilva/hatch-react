@@ -1,17 +1,25 @@
 import React from 'react';
-import CounterContainer from 'containers/CounterContainer/CounterContainer.jsx';
-import Container from 'components/Container/Container.jsx';
+import PropTypes from 'prop-types';
 import Header from 'components/Header/Header.jsx';
+import Main from 'components/Main/Main.jsx';
+import Footer from 'components/Footer/Footer.jsx';
 
-function App() {
+function App({ children }) {
   return (
     <div className="App">
       <Header />
-      <Container>
-        <CounterContainer />
-      </Container>
+      <Main>{children}</Main>
+      <Footer />
     </div>
   );
 }
+
+App.propTypes = {
+  children: PropTypes.node
+};
+
+App.defaultProps = {
+  children: null
+};
 
 export default App;

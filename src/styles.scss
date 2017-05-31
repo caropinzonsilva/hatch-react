@@ -1,14 +1,8 @@
-// modules
 @import "~normalize.css/normalize.css";
-
-// config
 @import "config.variables.scss";
 @import "config.mixins.scss";
-
-// generic
+@import "config.functions.scss";
 @import "generic.boxsizing.scss";
-
-// elements
 @import "elements.root.scss";
 @import "elements.headings.scss";
 @import "elements.forms.scss";
