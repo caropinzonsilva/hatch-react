@@ -4,6 +4,6 @@ import { storiesOf } from '@storybook/react';
 import Header from 'components/Header/Header.jsx';
 
 storiesOf('Header', module)
-  .add('Component', () =>
+  .add('with default state', () =>
     <Header />
   );
