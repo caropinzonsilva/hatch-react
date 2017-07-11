@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import HomeView from 'views/HomeView/HomeView.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from 'configureStore.js';
+import AppView from 'views/AppView/AppView.jsx';
 import 'styles.scss';
 
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <HomeView />
+    <Router><AppView /></Router>
   </Provider>,
   document.getElementById('app')
 );
