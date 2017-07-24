@@ -29,12 +29,19 @@ const commonConfig = {
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [{
-          loader: 'css-loader'
+          loader: 'css-loader',
+          options: {
+            sourceMap: true
+          }
         }, {
-          loader: 'postcss-loader'
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true
+          }
         }, {
           loader: 'sass-loader',
           options: {
+            sourceMap: true,
             outputStyle: 'expanded',
             includePaths: [
               path.resolve(__dirname, 'src/styles')
@@ -54,7 +61,10 @@ const commonConfig = {
       context: path.join(__dirname, 'src'),
       emitErrors: ENV !== 'development'
     }),
-    new ExtractTextPlugin('index.css'),
+    new ExtractTextPlugin({
+      disable: ENV === 'development',
+      filename: 'index.css'
+    }),
     new webpack.LoaderOptionsPlugin({
       test: /\.jsx?$/,
       options: {
