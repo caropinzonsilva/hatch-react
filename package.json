@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node app.js",
     "start:development": "cross-env NODE_ENV=development webpack-dev-server",
-    "build:development": "cross-env NODE_ENV=development webpack",
-    "build:staging": "cross-env NODE_ENV=staging webpack",
-    "build:production": "cross-env NODE_ENV=production webpack",
+    "clean": "rimraf dist",
+    "build:development": "rimraf dist && cross-env NODE_ENV=development webpack",
+    "build:staging": "rimraf dist && cross-env NODE_ENV=staging webpack",
+    "build:production": "rimraf dist && cross-env NODE_ENV=production webpack",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "engines": {
@@ -40,6 +41,7 @@
     "eslint-plugin-react": "^6.9.0",
     "express": "^4.16.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.2",
     "normalize.css": "^7.0.0",
     "postcss-loader": "^2.0.5",
@@ -51,6 +53,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "stylelint": "^7.7.0",
