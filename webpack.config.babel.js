@@ -62,7 +62,6 @@ const commonConfig = {
       emitErrors: ENV !== 'development'
     }),
     new ExtractTextPlugin({
-      disable: ENV === 'development',
       filename: 'index.css'
     }),
     new webpack.LoaderOptionsPlugin({
