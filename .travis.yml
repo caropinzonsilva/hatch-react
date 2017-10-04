@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+- 6.11.3
+branches:
+  only:
+  - master
+  - staging
+notifications:
+  email:
+    recipients:
+    - dev@axiomzen.co
+    on_success: change
+    on_failure: always
+install:
+- npm install
+- if [ "$TRAVIS_BRANCH" == "staging" ] ; then npm run build:staging ; fi
+- if [ "$TRAVIS_BRANCH" == "master" ] ; then npm run build:production ; fi
+deploy:
+  provider: heroku
+  strategy: api
+  skip_cleanup: true
+  api_key:
+    secure: eOYnToCkvhKvWV27/iQfWzcwWD4mzOIpdN7MtqkITh/5uwFQbeScFnRl8MS0CoLqxYbMFOyrK8a5gY/lLd0K78hM++NzWISA8iQ4fD7Ahd/n1uhaLYmvbu0vnKhsw3SgbMsyebEZYDEupPJQBJ0jnBW44xALTXuWiqBu+1j3XqwkXkD72NtNgsuuadSjB5f45HBzjuNoIh/hnWvHEpUS7sZFklpaMT7qCJRouzGhdg4vvagUXr2E2HfpZKYhSWtbCX/keIcHQTykPzR0FlgvyI8KampSYXOhDOtsvWw8/dFZ9Hj+D1C2MV53SlbUv92q5YZiR7xc+MYVVO1/bFAmbFdKkIiJABxumQz5LzuYLG56SidEm0AEfWtNtGpd03RS881srxkTD+Wie8P5Dz8W5sOi/tkkax6x1XixkI6YHFKj4+dCVKNyhjR8HsaGB6iziOLw8xFzlizLzQwcNyBW+j7xCI7l4iCTU81B/rlCkcdVOxjpS7LkDsn7BqhACMPHnrrNwvCFLl8Bbm7LG7zPu6uF4SgrrujbUNXwQAt2HInGzt53/tew1iUaV2490wH+egs8j1k24QyhlRHW/gtsKMAydZB7NHq/zhuQI+o/YlPl5mXXsJhjqk0WTQvujVqiXRq1mpO1CWNt+GUNJXT5EwIU2IIWFzpa5ctQmatYZIQ=
+  app:
+    staging: hatch-react-staging
+    master: hatch-react-production
