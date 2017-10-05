@@ -16,7 +16,9 @@ const configs = {
 const ENV = process.env.NODE_ENV;
 
 const commonConfig = {
-  entry: path.join(__dirname, 'src/index.jsx'),
+  entry: {
+    index: path.join(__dirname, 'src/index.jsx')
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
