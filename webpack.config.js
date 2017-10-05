@@ -1,12 +1,17 @@
-import webpack from 'webpack';
-import merge from 'webpack-merge';
-import path from 'path';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import StyleLintPlugin from 'stylelint-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
-import * as configs from './webpack';
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+
+const configs = {
+  development: require('./webpack/development.js'),
+  staging: require('./webpack/staging.js'),
+  production: require('./webpack/production.js')
+};
 
 const ENV = process.env.NODE_ENV;
 
@@ -95,4 +100,4 @@ const environmentConfig = (() => {
   }
 })();
 
-export default merge(commonConfig, environmentConfig);
+module.exports = merge(commonConfig, environmentConfig);

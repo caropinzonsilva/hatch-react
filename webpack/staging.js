@@ -1,7 +1,7 @@
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-export default {
+module.exports = {
   output: {
     filename: '[name].[chunkhash].js'
   },
