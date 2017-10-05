@@ -1,11 +1,18 @@
 import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
+  output: {
+    filename: '[name].[chunkhash].js'
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].[chunkhash].css'
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
