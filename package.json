@@ -12,8 +12,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "engines": {
-    "node": "6.11.3",
-    "npm": "3.10.10"
+    "node": "^8.1.0",
+    "yarn": "^1.2.1"
   },
   "repository": {
     "type": "git",
