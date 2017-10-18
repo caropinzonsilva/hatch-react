@@ -12,9 +12,9 @@ notifications:
     on_success: change
     on_failure: always
 install:
-- npm install
-- if [ "$TRAVIS_BRANCH" == "staging" ] ; then npm run build:staging ; fi
-- if [ "$TRAVIS_BRANCH" == "master" ] ; then npm run build:production ; fi
+- yarn install
+- if [ "$TRAVIS_BRANCH" == "staging" ] ; then yarn build:staging ; fi
+- if [ "$TRAVIS_BRANCH" == "master" ] ; then yarn build:production ; fi
 deploy:
   provider: heroku
   strategy: api
