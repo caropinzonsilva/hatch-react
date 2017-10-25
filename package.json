@@ -9,7 +9,7 @@
     "build:development": "cross-env NODE_ENV=development webpack",
     "build:staging": "cross-env NODE_ENV=staging webpack",
     "build:production": "cross-env NODE_ENV=production webpack",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c ./.storybook -s ./public"
   },
   "engines": {
     "node": "^8.8.0",
@@ -31,6 +31,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.2.0",
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "eslint": "^3.15.0",
@@ -43,6 +44,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
+    "imagemin-webpack-plugin": "^1.5.2",
     "node-sass": "^4.5.2",
     "normalize.css": "^7.0.0",
     "postcss-loader": "^2.0.5",
