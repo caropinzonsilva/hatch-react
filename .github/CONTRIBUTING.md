@@ -5,9 +5,8 @@ We welcome contributions from anyone interested in helping improve the project. 
 ## Getting started
 
 - Create an issue for your proposed change (if one does not already exist)
-  - Clearly describe the proposed change
-  - Explain the benefits and tradeoffs if it is a feature
-  - List steps to reproduce if it is a bug
+- Clearly describe the proposed change
+- List steps to reproduce if it is a bug
 
 ## Making changes
 
@@ -22,5 +21,3 @@ We welcome contributions from anyone interested in helping improve the project. 
 
 - Push your changes to your topic branch
 - Submit a pull request to the repository
-- Add a nice description to the changes made, and include screenshots / gifs if possible
-- Tag `@axiomzen/front-end` team for reviews
