@@ -8,9 +8,8 @@ A react starter kit.
 
 ## Requirements:
 
-- Node 6.11.3
-- NPM 3.10.10
-- Yarn
+- Node ^8.8.0
+- Yarn ^1.2.1
 
 ## Get Started
 
@@ -18,12 +17,9 @@ A react starter kit.
 - Remove the `.git` directory, and set up your remotes
 - Configure `.travis.yml` with your Heroku apps and API key
 - Make sure yarn is up to date then run `yarn` to install deps
-- Run `yarn run start:development` to start a dev server
+- Run `yarn start:development` to start a dev server
+- Run `yarn storybook` to start storybook
 
 ## Contributing
 
 Check out the [contributing guidelines.](CONTRIBUTING.md)
-
-## Usage
-
-Check out the [usage guidelines.](USAGE.md)
