@@ -8,9 +8,8 @@ A react starter kit.
 
 ## Requirements:
 
-- Node 6.11.3
-- NPM 3.10.10
-- Yarn
+- Node ^8.8.0
+- Yarn ^1.2.1
 
 ## Get Started
 
@@ -23,7 +22,3 @@ A react starter kit.
 ## Contributing
 
 Check out the [contributing guidelines.](CONTRIBUTING.md)
-
-## Usage
-
-Check out the [usage guidelines.](USAGE.md)
