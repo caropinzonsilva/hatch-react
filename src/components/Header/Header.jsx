@@ -6,6 +6,12 @@ import 'components/Header/Header.scss';
 const Header = () => (
   <div className="Header">
     <Container>
+      <img
+        src="/img/react.svg"
+        className="Header-logo"
+        alt="hatch-react"
+        width="80"
+      />
       <h1 className="Header-title">hatch-react</h1>
       <p className="Header-subTitle">A React starter kit</p>
       <nav className="Header-navigation">
