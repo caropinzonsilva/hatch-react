@@ -17,7 +17,8 @@ A react starter kit.
 - Remove the `.git` directory, and set up your remotes
 - Configure `.travis.yml` with your Heroku apps and API key
 - Make sure yarn is up to date then run `yarn` to install deps
-- Run `yarn run start:development` to start a dev server
+- Run `yarn start:development` to start a dev server
+- Run `yarn storybook` to start storybook
 
 ## Contributing
 
