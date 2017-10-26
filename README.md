@@ -22,4 +22,4 @@ A react starter kit.
 
 ## Contributing
 
-Check out the [contributing guidelines.](CONTRIBUTING.md)
+Check out the [contributing guidelines.](.github/CONTRIBUTING.md)
