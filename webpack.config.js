@@ -6,6 +6,8 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const configs = {
   development: require('./webpack/development.js'),
@@ -40,7 +42,8 @@ const commonConfig = {
         use: [{
           loader: 'css-loader',
           options: {
-            sourceMap: true
+            sourceMap: true,
+            url: false
           }
         }, {
           loader: 'postcss-loader',
@@ -86,7 +89,15 @@ const commonConfig = {
       inject: 'body',
       alwaysWriteToDisk: true
     }),
-    new HtmlWebpackHarddiskPlugin()
+    new HtmlWebpackHarddiskPlugin(),
+    new CopyWebpackPlugin([{
+      from: path.join(__dirname, 'public'),
+      to: path.join(__dirname, 'dist')
+    }]),
+    new ImageminPlugin({
+      disable: ENV !== 'production',
+      test: /\.(jpe?g|png|gif|svg)$/i
+    })
   ]
 };
 
