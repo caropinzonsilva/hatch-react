@@ -2,16 +2,24 @@
 
 [![Ship faster with ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
 
-A react starter kit. Features:
+[![Build Status](https://travis-ci.com/axiomzen/hatch-react.svg?token=JLgpsrQURqM6hUjQoYCf&branch=master)](https://travis-ci.com/axiomzen/hatch-react)
 
-* React
-* Redux
-* Sass (SCSS)
+A react starter kit.
+
+## Requirements:
+
+- Node ^8.8.0
+- Yarn ^1.2.1
+
+## Get Started
+
+- Clone the repo
+- Remove the `.git` directory, and set up your remotes
+- Configure `.travis.yml` with your Heroku apps and API key
+- Make sure yarn is up to date then run `yarn` to install deps
+- Run `yarn start:development` to start a dev server
+- Run `yarn storybook` to start storybook
 
 ## Contributing
 
-Check out the [contributing guidelines.](CONTRIBUTING.md)
-
-## Usage
-
-Check out the [usage guidelines.](USAGE.md)
+Check out the [contributing guidelines.](.github/CONTRIBUTING.md)
