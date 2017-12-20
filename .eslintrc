@@ -19,7 +19,6 @@
     "browser": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"],
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
