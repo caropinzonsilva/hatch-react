@@ -60,3 +60,7 @@ typings/
 # Build / dist directories
 build
 dist
+
+
+# Jetbrains IDES
+.idea/
