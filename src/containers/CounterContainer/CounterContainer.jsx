@@ -20,12 +20,12 @@ class CounterContainer extends Component {
 CounterContainer.propTypes = {
   count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired
+  decrement: PropTypes.func.isRequired,
 };
 
 function mapStateToProps({ count }) {
   return {
-    count
+    count,
   };
 }
 

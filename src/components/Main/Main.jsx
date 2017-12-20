@@ -6,19 +6,17 @@ import 'components/Main/Main.scss';
 function Main({ children }) {
   return (
     <main className="Main">
-      <Container>
-        {children}
-      </Container>
+      <Container>{children}</Container>
     </main>
   );
 }
 
 Main.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Main.defaultProps = {
-  children: null
+  children: null,
 };
 
 export default Main;
