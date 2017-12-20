@@ -4,17 +4,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   output: {
-    filename: '[name].js'
+    filename: '[name].js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
+        NODE_ENV: JSON.stringify('development'),
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
     }),
   ],
   devServer: {
@@ -23,7 +23,7 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    port: '3000'
+    port: '3000',
   },
-  devtool: 'cheap-eval-source-map'
+  devtool: 'cheap-eval-source-map',
 };
