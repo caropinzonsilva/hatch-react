@@ -22,6 +22,19 @@
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
-    "react/prefer-stateless-function": 0
-  }
+    "react/prefer-stateless-function": 0,
+    "react/jsx-wrap-multilines": [2, {
+      "declaration": "parens-new-line",
+      "assignment": "parens-new-line",
+      "return": "parens-new-line",
+      "arrow": "parens-new-line",
+      "condition": "ignore",
+      "logical": "ignore",
+      "prop": "ignore"
+    }],
+    "prettier/prettier": "error"
+  },
+  "plugins": [
+    "prettier"
+  ]
 }

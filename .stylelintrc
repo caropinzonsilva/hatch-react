@@ -13,6 +13,7 @@
     "block-closing-brace-newline-after": ["always", {
       "ignoreAtRules": ["if", "else"]
     }],
-    "unit-whitelist": ["px", "em", "rem", "%", "s", "deg", "vw", "vh"]
+    "unit-whitelist": ["px", "em", "rem", "%", "s", "deg", "vw", "vh"],
+    "string-quotes": "single"
   }
 }
