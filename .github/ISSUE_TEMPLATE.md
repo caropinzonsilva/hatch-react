@@ -6,13 +6,13 @@ Please describe the behaviour you are expecting.
 
 Enter **Not yet implemented** if it hasn't yet been implemented.
 
-## Steps to Reproduce the Problem
+## Steps to Reproduce the Problem (delete section if irrelevant)
 
 1.
 1.
 1.
 
-## Specifications
+## Specifications (delete section if irrelevant)
 
 - Version:
 - Platform:
