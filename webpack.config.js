@@ -11,7 +11,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const configs = {
   development: require('./webpack/development.js'),
-  staging: require('./webpack/staging.js'),
   production: require('./webpack/production.js')
 };
 
@@ -103,10 +102,9 @@ const commonConfig = {
 
 const environmentConfig = (() => {
   switch (ENV) {
+    case 'staging':
     case 'production':
       return configs.production;
-    case 'staging':
-      return configs.staging;
     case 'development':
     default:
       return configs.development;

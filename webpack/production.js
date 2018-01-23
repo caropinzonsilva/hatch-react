@@ -1,5 +1,8 @@
 const webpack = require('webpack');
+const parseArgs = require('minimist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const ENV = parseArgs(process.argv.slice(2)).env;
 
 module.exports = {
   output: {
@@ -8,6 +11,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
+        'ENV': JSON.stringify(ENV),
         'NODE_ENV': JSON.stringify('production')
       }
     }),
