@@ -1,3 +1,3 @@
-import CounterContainer from 'containers/CounterContainer/CounterContainer.jsx';
+import CounterContainer from 'containers/CounterContainer.jsx';
 
 export default CounterContainer;

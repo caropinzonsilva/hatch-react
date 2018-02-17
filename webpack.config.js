@@ -14,7 +14,7 @@ const configs = {
   production: require('./webpack/production.js')
 };
 
-const ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV;
 
 const commonConfig = {
   entry: {
@@ -71,8 +71,8 @@ const commonConfig = {
       test: /\.jsx?$/,
       options: {
         eslint: {
-          emitWarning: ENV === 'development',
-          emitError: ENV === 'staging' || ENV === 'production'
+          emitWarning: NODE_ENV === 'development',
+          emitError: NODE_ENV === 'production'
         }
       }
     }),
@@ -80,7 +80,7 @@ const commonConfig = {
       configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
       context: path.join(__dirname, 'src'),
-      emitErrors: ENV !== 'development'
+      emitErrors: NODE_ENV !== 'development'
     }),
     new HtmlWebpackPlugin({
       title: 'hatch-react',
@@ -94,15 +94,14 @@ const commonConfig = {
       to: path.join(__dirname, 'dist')
     }]),
     new ImageminPlugin({
-      disable: ENV !== 'production',
+      disable: NODE_ENV !== 'production',
       test: /\.(jpe?g|png|gif|svg)$/i
     })
   ]
 };
 
 const environmentConfig = (() => {
-  switch (ENV) {
-    case 'staging':
+  switch (NODE_ENV) {
     case 'production':
       return configs.production;
     case 'development':
