@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const env = require('../.env/development.js');
+const env = require('../env/development.js');
 
 const envVars = ((env) => {
   const keys = Object.keys(env);

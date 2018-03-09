@@ -7,11 +7,11 @@ const ENV = parseArgs(process.argv.slice(2)).env;
 const env = (() => {
   switch (ENV) {
     case 'production':
-      return require('../.env/production.js');
+      return require('../env/production.js');
     case 'staging':
-      return require('../.env/staging.js');
+      return require('../env/staging.js');
     default:
-      return require('../.env/staging.js');
+      return require('../env/staging.js');
   }
 })();
 
