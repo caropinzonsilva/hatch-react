@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import HomePage from 'components/HomePage/HomePage.jsx';
 
-class HomeView extends Component {
-  render() {
-    return (
-      <HomePage />
-    );
-  }
+function HomeView() {
+  return (
+    <HomePage />
+  );
 }
 
 export default HomeView;

@@ -9,14 +9,14 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const configs = {
+const webpackConfigs = {
   development: require('./webpack/development.js'),
   production: require('./webpack/production.js')
 };
 
 const NODE_ENV = process.env.NODE_ENV;
 
-const commonConfig = {
+const webpackCommonConfig = {
   entry: {
     index: path.join(__dirname, 'src/index.jsx')
   },
@@ -100,14 +100,14 @@ const commonConfig = {
   ]
 };
 
-const environmentConfig = (() => {
+const webpackEnvironmentConfig = (() => {
   switch (NODE_ENV) {
     case 'production':
-      return configs.production;
+      return webpackConfigs.production;
     case 'development':
     default:
-      return configs.development;
+      return webpackConfigs.development;
   }
 })();
 
-module.exports = merge(commonConfig, environmentConfig);
+module.exports = merge(webpackCommonConfig, webpackEnvironmentConfig);

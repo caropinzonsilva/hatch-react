@@ -20,13 +20,17 @@ const Header = () => (
           to="/"
           className="Header-navigation-item"
           activeClassName="Header-navigation-item--isActive"
-        >Home</NavLink>
+        >
+          Home
+        </NavLink>
         <NavLink
           exact
           to="/counter"
           className="Header-navigation-item"
           activeClassName="Header-navigation-item--isActive"
-        >Counter Example</NavLink>
+        >
+          Counter Example
+        </NavLink>
       </nav>
     </Container>
   </div>

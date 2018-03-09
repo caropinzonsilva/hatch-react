@@ -1,28 +1,58 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "airbnb"
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "prettier",
+    "react"
   ],
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
-      "forOf": true,
-      "jsx": true,
-      "es6": true
+      "jsx": true
     }
   },
-  "globals": {
-    "window": true
-  },
   "env": {
-    "browser": true
+    "browser": true,
+    "commonjs": true,
+    "jest": true
   },
   "rules": {
     "comma-dangle": ["error", "never"],
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
-    "react/prefer-stateless-function": 0
+    "react/button-has-type": 2,
+    "react/default-props-match-prop-types": 2,
+    "react/no-access-state-in-setstate": 2,
+    "react/no-direct-mutation-state": 2,
+    "react/no-redundant-should-component-update": 2,
+    "react/no-typos": 2,
+    "react/no-string-refs": 2,
+    "react/no-unknown-property": 2,
+    "react/no-unused-prop-types": 2,
+    "react/no-unused-state": 2,
+    "react/prefer-stateless-function": 2,
+    "react/prop-types": 2,
+    "react/require-default-props": 2,
+    "react/require-render-return": 2,
+    "react/self-closing-comp": 2,
+    "react/sort-comp": 2,
+    "react/jsx-closing-bracket-location": 2,
+    "react/jsx-closing-tag-location": 2,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-no-duplicate-props": [2, {
+      "ignoreCase": true
+    }],
+    "react/jsx-no-undef": [2, {
+      "allowGlobals": true
+    }],
+    "jsx-a11y/img-has-alt": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   }
 }
