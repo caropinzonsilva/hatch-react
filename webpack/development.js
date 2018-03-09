@@ -1,9 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
-const parseArgs = require('minimist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const env = require('../.env/development.js');
 
-const ENV = parseArgs(process.argv.slice(2)).env;
+const envVars = ((env) => {
+  const keys = Object.keys(env);
+  keys.forEach(k => env[k] = JSON.stringify(process.env[k] || env[k]));
+  return env;
+})(env);
 
 module.exports = {
   output: {
@@ -12,14 +16,13 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'ENV': JSON.stringify(ENV),
-        'NODE_ENV': JSON.stringify('development')
+        ...envVars
       }
     }),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({
       filename: '[name].css'
-    }),
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, '../dist'),

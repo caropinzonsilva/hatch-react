@@ -4,6 +4,7 @@ node_js:
 branches:
   only:
   - master
+  - stable
 notifications:
   email:
     recipients:
@@ -12,7 +13,10 @@ notifications:
     on_failure: always
 install:
 - yarn install
-- if [ "$TRAVIS_BRANCH" == "master" ] ; then yarn build:production ; fi
+- yarn lint
+- yarn test
+- if [ "$TRAVIS_BRANCH" == "master" ] ; then yarn build:staging ; fi
+- if [ "$TRAVIS_BRANCH" == "stable" ] ; then yarn build:production ; fi
 deploy:
   provider: heroku
   strategy: api
@@ -20,4 +24,5 @@ deploy:
   api_key:
     secure: uAt4A2IHEOTB07sBF/XWv/W8+OWV8BXNID6elWDDb6530uofFj/9tYnkvjdkILVmCbDf/bD4KtoQqMdlA93XkuKamC+qNKVLaLurqwXXc5gNknqNWOREu+FU+Vj6/Vzbxb+zFZuaE+QQ7dH9t3FR2iui2D5qcqRFvEuHG8jIYTcL3nowPWNNzcQZU1ubakXJN0x98ruxr5tujpeQe9tm89dOUkeTQO7dWJ4JbKg0ERJffRcOpSduMT4eLJHlWt0JaqirEoPBl1ZEHok7ACyabLIm/MSfJ27i7k6C/pzL1Jx4eRqXlCOV9jQzl9sS+3n5cX6G9wYiu23Lc1VvcYHUAEvLFyAVxT3E894K3KVM191HNFdsNgd6CVclbodi92CAykRjEQmpzeZVnh4SOVrEPUbiEy3W0N9+AmRiV9ry3QnFucVUTv9FnlI1YycBlY8h38qXeP37+P2pvmOstznd3WH1JiwlUkMoISxJ3BCEjg18GC7tPzWnsYCjRJZ9Eun+/svHUQ12E6y6TnxyREOds+7xqY6lre0aRPG84c1zH0KTri3jTygTI2T0wDf99kmASyiiOr7Ye/7f5Yir/jOrS9fO550E5QlTs9e+52Wj0L6FGmQfAmuHDZTBE9/geJ7OdLtFiEVLreFGL25ts8mcwW9A2G6B/liGOltGO8/4Zwk=
   app:
-    master: hatch-react
+    master: hatch-react-staging
+    stable: hatch-react-production-beta
