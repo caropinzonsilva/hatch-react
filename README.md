@@ -4,7 +4,7 @@ A react starter kit.
 
 ## 🛠 Requirements:
 
-- Node ^8
+- Node ^8.8.0
 - Yarn ^1.2.1
 
 ## 🏎 Get Started
