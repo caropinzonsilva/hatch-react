@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
+const parseArgs = require('minimist');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -10,12 +11,11 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const configs = {
-  development: require('./webpack/development.js'),
-  staging: require('./webpack/staging.js'),
-  production: require('./webpack/production.js'),
+  development: require(path.join(__dirname, 'webpack/development.js')),
+  production: require(path.join(__dirname, 'webpack/production.js')),
 };
 
-const ENV = process.env.NODE_ENV;
+const ENV = parseArgs(process.argv.slice(2)).env;
 
 const commonConfig = {
   entry: {
@@ -79,7 +79,7 @@ const commonConfig = {
       options: {
         eslint: {
           emitWarning: ENV === 'development',
-          emitError: ENV === 'staging' || ENV === 'production',
+          emitError: ENV === 'production',
         },
       },
     }),
@@ -87,7 +87,7 @@ const commonConfig = {
       configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
       context: path.join(__dirname, 'src'),
-      emitErrors: ENV !== 'development',
+      emitErrors: ENV === 'production',
     }),
     new HtmlWebpackPlugin({
       title: 'hatch-react',
@@ -112,9 +112,8 @@ const commonConfig = {
 const environmentConfig = (() => {
   switch (ENV) {
     case 'production':
-      return configs.production;
     case 'staging':
-      return configs.staging;
+      return configs.production;
     case 'development':
     default:
       return configs.development;
