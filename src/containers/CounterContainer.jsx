@@ -6,24 +6,18 @@ import { increment, decrement } from 'actions/count.js';
 import Counter from 'components/Counter/Counter.jsx';
 
 function CounterContainer({ count, increment, decrement }) {
-  return (
-    <Counter
-      count={count}
-      increment={increment}
-      decrement={decrement}
-    />
-  );
+  return <Counter count={count} increment={increment} decrement={decrement} />;
 }
 
 CounterContainer.propTypes = {
   count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired
+  decrement: PropTypes.func.isRequired,
 };
 
 function mapStateToProps({ count }) {
   return {
-    count
+    count,
   };
 }
 

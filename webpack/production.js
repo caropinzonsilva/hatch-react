@@ -15,36 +15,36 @@ const env = (() => {
   }
 })();
 
-const envVars = (env => {
+const envVars = ((env) => {
   const keys = Object.keys(env);
-  keys.forEach(k => (env[k] = JSON.stringify(process.env[k] || env[k])));
+  keys.forEach((k) => (env[k] = JSON.stringify(process.env[k] || env[k])));
   return env;
 })(env);
 
 module.exports = {
   output: {
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        ...envVars
-      }
+        ...envVars,
+      },
     }),
     new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css'
+      filename: '[name].[chunkhash].css',
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false
+      debug: false,
     }),
     new webpack.optimize.UglifyJsPlugin({
       mangle: {
-        screw_ie8: true
+        screw_ie8: true,
       },
       compress: {
-        screw_ie8: true
-      }
-    })
-  ]
+        screw_ie8: true,
+      },
+    }),
+  ],
 };

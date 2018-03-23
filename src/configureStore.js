@@ -7,19 +7,21 @@ function configureStore() {
   const middlewares = [thunk];
 
   if (process.env.NODE_ENV !== 'production') {
-    middlewares.push(createLogger());
+    middlewares.push(
+      createLogger({
+        collapsed: true,
+      }),
+    );
   }
 
   /* eslint-disable no-underscore-dangle */
-  const composeEnhancers = typeof window === 'object' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
-    compose;
+  const composeEnhancers =
+    typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      : compose;
   /* eslint-enable */
 
-  const enhancer = composeEnhancers(
-    applyMiddleware(...middlewares)
-  );
+  const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
   return createStore(reducer, enhancer);
 }

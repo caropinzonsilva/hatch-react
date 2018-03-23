@@ -3,7 +3,4 @@ import { storiesOf } from '@storybook/react';
 
 import Header from 'components/Header/Header.jsx';
 
-storiesOf('Header', module)
-  .add('with default state', () =>
-    <Header />
-  );
+storiesOf('Header', module).add('with default state', () => <Header />);

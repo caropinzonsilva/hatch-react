@@ -10,9 +10,11 @@
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-trailing-semicolon": "always",
     "declaration-block-semicolon-newline-after": "always",
+    "declaration-colon-space-after": "always-single-line",
     "block-closing-brace-newline-after": ["always", {
       "ignoreAtRules": ["if", "else"]
     }],
-    "unit-whitelist": ["px", "em", "rem", "%", "s", "deg", "vw", "vh"]
+    "unit-whitelist": ["px", "em", "rem", "%", "s", "deg", "vw", "vh", "fr"],
+    "string-quotes": "double"
   }
 }

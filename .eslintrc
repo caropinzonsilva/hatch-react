@@ -7,7 +7,8 @@
   ],
   "plugins": [
     "prettier",
-    "react"
+    "react",
+    "jsx-a11y"
   ],
   "parserOptions": {
     "ecmaVersion": 7,
@@ -16,16 +17,18 @@
       "jsx": true
     }
   },
+  "globals": {
+    "window": true,
+    "web3": true,
+    "ck_app": true,
+    "ga": true,
+    "Raven": true
+  },
   "env": {
-    "browser": true,
-    "commonjs": true,
-    "jest": true
+    "browser": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"],
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": 0,
+    "prettier/prettier": 2,
     "react/button-has-type": 2,
     "react/default-props-match-prop-types": 2,
     "react/no-access-state-in-setstate": 2,
@@ -49,10 +52,10 @@
     "react/jsx-no-duplicate-props": [2, {
       "ignoreCase": true
     }],
-    "react/jsx-no-undef": [2, {
-      "allowGlobals": true
-    }],
-    "jsx-a11y/img-has-alt": 0,
-    "jsx-a11y/no-static-element-interactions": 0
+    "react/jsx-no-undef": 2,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "jsx-a11y/alt-text": 2,
+    "jsx-a11y/no-static-element-interactions": 2
   }
 }

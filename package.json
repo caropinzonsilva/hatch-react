@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start:development": "cross-env NODE_ENV=development webpack-dev-server --env=development",
+    "start:development": "cross-env NODE_ENV=development webpack-dev-server",
     "build:development": "cross-env NODE_ENV=development webpack --env=development",
     "build:staging": "cross-env NODE_ENV=production webpack --env=staging",
     "build:production": "cross-env NODE_ENV=production webpack --env=production",
-    "lint": "eslint src/ stories/ --ext .js --ext .jsx",
-    "test": "jest --config ./jest.config.json",
-    "storybook": "start-storybook -p 9001 -c ./.storybook -s ./public"
+    "storybook": "start-storybook -p 9001 -c ./.storybook -s ./public",
+    "eslint": "eslint src/ stories/ --ext .js --ext .jsx",
+    "stylelint": "stylelint 'src/**/*.scss' --config .stylelintrc --syntax scss",
+    "test": "TZ=UTC jest --config ./jest.config.json",
+    "prettier:watch": "onchange '**/*.js' '**/*.jsx' '**/*.scss' -- prettier --write {{changed}}"
   },
   "engines": {
     "node": "^8.8.0",
@@ -47,7 +49,6 @@
     "eslint": "^4.18.2",
     "eslint-config-prettier": "^2.9.0",
     "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
@@ -60,6 +61,7 @@
     "minimist": "^1.2.0",
     "node-sass": "^4.5.2",
     "normalize.css": "^7.0.0",
+    "onchange": "^3.3.0",
     "postcss-loader": "^2.0.5",
     "prettier": "^1.11.1",
     "prop-types": "^15.5.3",
@@ -71,6 +73,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
+    "resolve-url-loader": "^2.3.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.19.1",
     "stylelint": "^8.4.0",
