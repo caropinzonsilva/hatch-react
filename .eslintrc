@@ -1,40 +1,61 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "airbnb"
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "prettier",
+    "react",
+    "jsx-a11y"
   ],
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
-      "forOf": true,
-      "jsx": true,
-      "es6": true
+      "jsx": true
     }
   },
   "globals": {
-    "window": true
+    "window": true,
+    "web3": true,
+    "ck_app": true,
+    "ga": true,
+    "Raven": true
   },
   "env": {
     "browser": true
   },
   "rules": {
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": 0,
-    "react/prefer-stateless-function": 0,
-    "react/jsx-wrap-multilines": [2, {
-      "declaration": "parens-new-line",
-      "assignment": "parens-new-line",
-      "return": "parens-new-line",
-      "arrow": "parens-new-line",
-      "condition": "ignore",
-      "logical": "ignore",
-      "prop": "ignore"
+    "prettier/prettier": 2,
+    "react/button-has-type": 1,
+    "react/default-props-match-prop-types": 1,
+    "react/no-access-state-in-setstate": 2,
+    "react/no-direct-mutation-state": 2,
+    "react/no-redundant-should-component-update": 2,
+    "react/no-typos": 2,
+    "react/no-string-refs": 2,
+    "react/no-unknown-property": 2,
+    "react/no-unused-prop-types": 1,
+    "react/no-unused-state": 1,
+    "react/prefer-stateless-function": 1,
+    "react/prop-types": 2,
+    "react/require-default-props": 1,
+    "react/require-render-return": 2,
+    "react/self-closing-comp": 2,
+    "react/sort-comp": 2,
+    "react/jsx-closing-bracket-location": 2,
+    "react/jsx-closing-tag-location": 2,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-no-duplicate-props": [2, {
+      "ignoreCase": true
     }],
-    "prettier/prettier": "error"
-  },
-  "plugins": [
-    "prettier"
-  ]
+    "react/jsx-no-undef": 2,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "jsx-a11y/alt-text": 1,
+    "jsx-a11y/no-static-element-interactions": 1
+  }
 }

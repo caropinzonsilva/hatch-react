@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic render test 1`] = `
+<footer
+  className="Footer"
+>
+  <div
+    className="Container"
+  >
+    <small>
+      Made with ♥ by Axiom Zen
+    </small>
+  </div>
+</footer>
+`;

@@ -1,4 +1,4 @@
-Closes `#xxx`
+ref #xxx
 
 ## Proposed Changes
 
@@ -8,8 +8,6 @@ Closes `#xxx`
 
 ## Type of change
 
-Please delete options that are not relevant.
-
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
@@ -17,4 +15,4 @@ Please delete options that are not relevant.
 
 ## Screenshots
 
-Upload some screenshots / GIFs if possible.
+Upload some screenshots / GIFs if possible, otherwise delete this section.
