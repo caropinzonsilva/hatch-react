@@ -15,9 +15,9 @@ const env = (() => {
   }
 })();
 
-const envVars = (env => {
+const envVars = ((env) => {
   const keys = Object.keys(env);
-  keys.forEach(k => (env[k] = JSON.stringify(process.env[k] || env[k])));
+  keys.forEach((k) => (env[k] = JSON.stringify(process.env[k] || env[k])));
   return env;
 })(env);
 

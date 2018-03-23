@@ -10,6 +10,7 @@
     "test": {
       "presets": [["env"], "react"],
       "plugins": [
+        "transform-class-properties",
         "transform-es2015-modules-commonjs",
         "dynamic-import-node"
       ]

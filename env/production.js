@@ -1,4 +1,4 @@
 module.exports = {
   NODE_ENV: 'production',
-  ENV: 'production'
+  ENV: 'production',
 };
