@@ -11,12 +11,21 @@ A react starter kit.
 
 - Clone the repo
 - Make sure yarn is up to date then run `yarn` to install deps
+
+### FE Development
+
 - Run `yarn start:development` to start a dev server
 - Run `yarn storybook` to run Storybook (our component development environment)
 - Run `yarn eslint` lint JavaScript files
 - Run `yarn stylelint` lint style files
 - Run `yarn test` to run tests
 - Run `yarn prettier:watch` to auto format as you work
+
+### Node Development
+
+- Run `yarn build:development` to build the front end in develpment mode
+- Or, run `yarn build:production` to build the front end in production mode
+- Then, you can run `yarn start:watch` to start the Node server and watch for changes
 
 ## 🚀 Contributing and Releasing
 
