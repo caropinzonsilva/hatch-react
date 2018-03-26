@@ -7,7 +7,7 @@ A react starter kit.
 - Node ^8.8.0
 - Yarn ^1.2.1
 
-## Project Configuration
+## ⚙️ Project Configuration
 
 Before starting:
 
