@@ -1,4 +1,6 @@
-module.exports = function(app, router) {
+const router = require('express').Router();
+
+module.exports = function(app) {
   app.use('/api', router);
 
   router.get('/', (req, res) => {

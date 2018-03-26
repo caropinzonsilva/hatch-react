@@ -7,6 +7,15 @@ A react starter kit.
 - Node ^8.8.0
 - Yarn ^1.2.1
 
+## Project Configuration
+
+Before starting:
+
+- Update the `package.json` name field with the project name
+- Update the `.travis.yml` file with the correct api keys and instance names for deploying
+- Update the `app/sitemap.js` file with the correct hostname for sitemap generation
+  - As you develop the app, make sure to [keep updating the sitemap configuration](https://github.com/ekalinin/sitemap.js)
+
 ## 🏎 Get Started
 
 - Clone the repo
