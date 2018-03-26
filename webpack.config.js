@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const configs = {
   development: require(path.join(__dirname, 'webpack/development.js')),
@@ -105,6 +106,23 @@ const commonConfig = {
     new ImageminPlugin({
       disable: ENV !== 'production',
       test: /\.(jpe?g|png|gif|svg)$/i,
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, 'public/favicon/favicon.png'),
+      prefix: 'favicon/',
+      inject: true,
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: true,
+        twitter: false,
+        yandex: false,
+        windows: false,
+      },
     }),
   ],
 };
