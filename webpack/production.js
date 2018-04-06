@@ -36,6 +36,6 @@ module.exports = {
       minimize: true,
       debug: false,
     }),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin(),
   ],
 };
