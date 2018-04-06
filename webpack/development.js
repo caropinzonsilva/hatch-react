@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const env = require('../env/development.js');
 
 const envVars = ((env) => {
@@ -10,6 +9,7 @@ const envVars = ((env) => {
 })(env);
 
 module.exports = {
+  mode: 'development',
   output: {
     filename: '[name].js',
   },
@@ -20,9 +20,6 @@ module.exports = {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin({
-      filename: '[name].css',
-    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, '../dist'),

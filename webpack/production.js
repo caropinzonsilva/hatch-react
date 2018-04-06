@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const parseArgs = require('minimist');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ENV = parseArgs(process.argv.slice(2)).env;
 
@@ -22,6 +22,7 @@ const envVars = ((env) => {
 })(env);
 
 module.exports = {
+  mode: 'production',
   output: {
     filename: '[name].[chunkhash].js',
   },
@@ -31,20 +32,10 @@ module.exports = {
         ...envVars,
       },
     }),
-    new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css',
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: {
-        screw_ie8: true,
-      },
-      compress: {
-        screw_ie8: true,
-      },
-    }),
+    new BundleAnalyzerPlugin()
   ],
 };
