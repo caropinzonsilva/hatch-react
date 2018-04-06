@@ -27,6 +27,7 @@
   "author": "Axiom Zen",
   "license": "UNLICENSED",
   "dependencies": {
+    "@storybook/addon-storyshots": "^3.0.0",
     "@storybook/react": "^3.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
