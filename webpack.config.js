@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
-const parseArgs = require('minimist');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -16,7 +15,7 @@ const configs = {
   production: require(path.join(__dirname, 'webpack/production.js')),
 };
 
-const ENV = parseArgs(process.argv.slice(2)).env;
+const NODE_ENV = process.env.NODE_ENV;
 
 const commonConfig = {
   entry: {
@@ -31,8 +30,16 @@ const commonConfig = {
       {
         enforce: 'pre',
         test: /\.jsx?$/,
-        use: 'eslint-loader',
         exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: NODE_ENV === 'development',
+            emitError: NODE_ENV === 'production',
+            failOnWarning: NODE_ENV === 'production',
+            failOnError: NODE_ENV === 'production',
+          },
+        },
       },
       {
         test: /\.jsx?$/,
@@ -75,20 +82,11 @@ const commonConfig = {
   },
   plugins: [
     new CleanWebpackPlugin([path.join(__dirname, 'dist')]),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          emitWarning: ENV === 'development',
-          emitError: ENV === 'production',
-        },
-      },
-    }),
     new StyleLintPlugin({
       configFile: path.join(__dirname, '.stylelintrc'),
       files: '**/*.?(sa|sc|c)ss',
       context: path.join(__dirname, 'src'),
-      emitErrors: ENV === 'production',
+      emitErrors: NODE_ENV === 'production',
     }),
     new HtmlWebpackPlugin({
       title: 'hatch-react',
@@ -104,7 +102,7 @@ const commonConfig = {
       },
     ]),
     new ImageminPlugin({
-      disable: ENV !== 'production',
+      disable: NODE_ENV === 'development',
       test: /\.(jpe?g|png|gif|svg)$/i,
     }),
     new FaviconsWebpackPlugin({
@@ -128,9 +126,8 @@ const commonConfig = {
 };
 
 const environmentConfig = (() => {
-  switch (ENV) {
+  switch (NODE_ENV) {
     case 'production':
-    case 'staging':
       return configs.production;
     case 'development':
     default:

@@ -1,8 +1,8 @@
 const webpack = require('webpack');
-const parseArgs = require('minimist');
+const argv = require('minimist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const ENV = parseArgs(process.argv.slice(2)).env;
+const ENV = argv(process.argv.slice(2)).env;
 
 const env = (() => {
   switch (ENV) {
