@@ -3,7 +3,7 @@ const argv = require('minimist');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const ENV = argv(process.argv.slice(2)).env;
-const customEnv = argv(process.argv.slice(3));
+const customEnv = argv(process.argv.slice(3)); // ref https://github.com/webpack/webpack/issues/2254
 const analyze = customEnv.env && customEnv.env.analyze;
 
 const env = (() => {
