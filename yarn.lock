@@ -5822,9 +5822,9 @@ imagemin-svgo@^6.0.0:
     is-svg "^2.0.0"
     svgo "^1.0.0"
 
-imagemin-webpack-plugin@^1.5.2:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/imagemin-webpack-plugin/-/imagemin-webpack-plugin-1.6.1.tgz#1c4c54ba33023a2a9dd64f747d1aa25c0b6bea3e"
+imagemin-webpack-plugin@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/imagemin-webpack-plugin/-/imagemin-webpack-plugin-2.1.1.tgz#e9ed697fe28e9a1bb74dc5459ba6c1c124009f0a"
   dependencies:
     async-throttle "^1.1.0"
     babel-runtime "^6.18.0"

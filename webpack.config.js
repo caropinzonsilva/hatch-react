@@ -108,7 +108,8 @@ const commonConfig = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].css',
+      filename:
+        ENV !== 'production' ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
     new FaviconsWebpackPlugin({
