@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const argv = require('minimist');
-const parseArgs = require('minimist');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const ENV = argv(process.argv.slice(2)).env;

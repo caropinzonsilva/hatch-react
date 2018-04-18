@@ -107,7 +107,7 @@ const commonConfig = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename:
-        ENV !== 'production' ? '[name].css' : '[name].[contenthash].css',
+        NODE_ENV !== 'production' ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
     new FaviconsWebpackPlugin({
