@@ -1,8 +1,10 @@
 const webpack = require('webpack');
 const argv = require('minimist');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const ENV = argv(process.argv.slice(2)).env;
+const customEnv = argv(process.argv.slice(3));
+const analyze = customEnv.env && customEnv.env.analyze;
 
 const env = (() => {
   switch (ENV) {
@@ -21,6 +23,8 @@ const envVars = ((env) => {
   return env;
 })(env);
 
+const bundleAnalyzer = analyze ? [new BundleAnalyzerPlugin()] : [];
+
 module.exports = {
   mode: 'production',
   output: {
@@ -36,6 +40,6 @@ module.exports = {
       minimize: true,
       debug: false,
     }),
-    // new BundleAnalyzerPlugin(),
+    ...bundleAnalyzer,
   ],
 };

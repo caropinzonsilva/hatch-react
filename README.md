@@ -36,6 +36,10 @@ Before starting:
 - Or, run `yarn build:production` to build the front end in production mode
 - Then, you can run `yarn start:watch` to start the Node server and watch for changes
 
+### Bundle Analysis
+
+- Or, run `yarn build:production --env.analyze=true` to run the BundleAnalyzerPlugin + Server to see the dependencies and their sizes.
+
 ## 🚀 Contributing and Releasing
 
 1. The `master` branch is the unstable branch. It's where all new issues should base off of.
