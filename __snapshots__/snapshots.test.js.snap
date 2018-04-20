@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Counter with count initialized to 0 1`] = `
+<div
+  style={
+    Object {
+      "display": "inlineBlock",
+      "height": "100vh",
+      "overflow": "auto",
+      "padding": "2rem",
+    }
+  }
+>
+  <div
+    className="Counter"
+  >
+    <h2
+      className="Counter-title"
+    >
+      Counter Component
+    </h2>
+    <div
+      className="Counter-content"
+    >
+      <button
+        className="Counter-button"
+        onClick={[Function]}
+        type="button"
+      >
+        -
+      </button>
+      <span
+        className="Counter-count"
+      >
+        0
+      </span>
+      <button
+        className="Counter-button"
+        onClick={[Function]}
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Counter with count initialized to 123 1`] = `
+<div
+  style={
+    Object {
+      "display": "inlineBlock",
+      "height": "100vh",
+      "overflow": "auto",
+      "padding": "2rem",
+    }
+  }
+>
+  <div
+    className="Counter"
+  >
+    <h2
+      className="Counter-title"
+    >
+      Counter Component
+    </h2>
+    <div
+      className="Counter-content"
+    >
+      <button
+        className="Counter-button"
+        onClick={[Function]}
+        type="button"
+      >
+        -
+      </button>
+      <span
+        className="Counter-count"
+      >
+        123
+      </span>
+      <button
+        className="Counter-button"
+        onClick={[Function]}
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Footer with default state 1`] = `
+<div
+  style={
+    Object {
+      "display": "inlineBlock",
+      "height": "100vh",
+      "overflow": "auto",
+      "padding": "2rem",
+    }
+  }
+>
+  <footer
+    className="Footer"
+  >
+    <div
+      className="Container"
+    >
+      <small>
+        Made with ♥ by Axiom Zen
+      </small>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots Header with default state 1`] = `
+<div
+  style={
+    Object {
+      "display": "inlineBlock",
+      "height": "100vh",
+      "overflow": "auto",
+      "padding": "2rem",
+    }
+  }
+>
+  <div
+    className="Header"
+  >
+    <div
+      className="Container"
+    >
+      <img
+        alt="hatch-react"
+        className="Header-logo"
+        src="/img/react.svg"
+        width="80"
+      />
+      <h1
+        className="Header-title"
+      >
+        hatch-react
+      </h1>
+      <p
+        className="Header-subTitle"
+      >
+        A React starter kit
+      </p>
+      <nav
+        className="Header-navigation"
+      >
+        <a
+          aria-current={false}
+          className="Header-navigation-item"
+          href="/"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Home
+        </a>
+        <a
+          aria-current={false}
+          className="Header-navigation-item"
+          href="/counter"
+          onClick={[Function]}
+          style={undefined}
+        >
+          Counter Example
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+`;

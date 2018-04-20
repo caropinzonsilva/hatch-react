@@ -3,12 +3,12 @@ const merge = require('webpack-merge');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const configs = {
   development: require(path.join(__dirname, 'webpack/development.js')),
@@ -48,32 +48,30 @@ const commonConfig = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                url: false,
-              },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              url: false,
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-              },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                outputStyle: 'expanded',
-                includePaths: [path.resolve(__dirname, 'src/styles')],
-              },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              outputStyle: 'expanded',
+              includePaths: [path.resolve(__dirname, 'src/styles')],
             },
-          ],
-        }),
+          },
+        ],
       },
     ],
   },
@@ -104,6 +102,13 @@ const commonConfig = {
     new ImageminPlugin({
       disable: NODE_ENV === 'development',
       test: /\.(jpe?g|png|gif|svg)$/i,
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename:
+        NODE_ENV !== 'production' ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: '[id].css',
     }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, 'public/favicon/favicon.png'),
