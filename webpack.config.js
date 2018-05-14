@@ -54,10 +54,17 @@ const commonConfig = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          NODE_ENV === 'development'
+            ? {
+                loader: 'style-loader',
+              }
+            : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
+              camelCase: true,
+              // importLoaders: 2,
+              modules: true,
               sourceMap: true,
               url: false,
             },
