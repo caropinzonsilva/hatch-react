@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Container from 'components/Container/Container.jsx';
 import css from 'components/Header/Header.scss';
 
-console.log(css);
-
 const Header = () => (
   <div className={css.header}>
     <Container>
