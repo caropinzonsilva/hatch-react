@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_PATH=. node app/index.js",
     "start:watch": "NODE_PATH=. nodemon app/index.js",
-    "start:development": "cross-env NODE_ENV=development NODE_PATH=. node app/index.js",
+    "start:development": "cross-env NODE_ENV=development NODE_PATH=. nodemon --watch app app/index.js",
     "build:development": "cross-env NODE_ENV=development webpack --env=development",
     "build:staging": "cross-env NODE_ENV=production webpack --env=staging",
     "build:production": "cross-env NODE_ENV=production webpack --env=production",

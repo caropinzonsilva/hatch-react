@@ -6,6 +6,5 @@ const compiler = webpack(webpackConfig);
 
 module.exports = function(app) {
   app.use(webpackDevMiddleware(compiler));
-
   app.use(webpackHotMiddleware(compiler));
 };
