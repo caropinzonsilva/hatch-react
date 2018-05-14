@@ -16,10 +16,15 @@ const configs = {
 };
 
 const NODE_ENV = process.env.NODE_ENV;
+const entryFiles = [path.join(__dirname, 'src/index.jsx')];
+
+if (NODE_ENV === 'development') {
+  entryFiles.push('webpack-hot-middleware/client');
+}
 
 const commonConfig = {
   entry: {
-    index: path.join(__dirname, 'src/index.jsx'),
+    index: entryFiles,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -50,10 +55,17 @@ const commonConfig = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          NODE_ENV === 'development'
+            ? {
+                loader: 'style-loader',
+              }
+            : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
+              camelCase: true,
+              // importLoaders: 2,
+              modules: true,
               sourceMap: true,
               url: false,
             },

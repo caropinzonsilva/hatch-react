@@ -12,30 +12,30 @@ exports[`Storyshots Counter with count initialized to 0 1`] = `
   }
 >
   <div
-    className="Counter"
+    className="counter"
   >
     <h2
-      className="Counter-title"
+      className="title"
     >
       Counter Component
     </h2>
     <div
-      className="Counter-content"
+      className="content"
     >
       <button
-        className="Counter-button"
+        className="button"
         onClick={[Function]}
         type="button"
       >
         -
       </button>
       <span
-        className="Counter-count"
+        className="count"
       >
         0
       </span>
       <button
-        className="Counter-button"
+        className="button"
         onClick={[Function]}
         type="button"
       >
@@ -58,30 +58,30 @@ exports[`Storyshots Counter with count initialized to 123 1`] = `
   }
 >
   <div
-    className="Counter"
+    className="counter"
   >
     <h2
-      className="Counter-title"
+      className="title"
     >
       Counter Component
     </h2>
     <div
-      className="Counter-content"
+      className="content"
     >
       <button
-        className="Counter-button"
+        className="button"
         onClick={[Function]}
         type="button"
       >
         -
       </button>
       <span
-        className="Counter-count"
+        className="count"
       >
         123
       </span>
       <button
-        className="Counter-button"
+        className="button"
         onClick={[Function]}
         type="button"
       >
@@ -104,10 +104,10 @@ exports[`Storyshots Footer with default state 1`] = `
   }
 >
   <footer
-    className="Footer"
+    className="footer"
   >
     <div
-      className="Container"
+      className="container"
     >
       <small>
         Made with ♥ by Axiom Zen
@@ -129,33 +129,33 @@ exports[`Storyshots Header with default state 1`] = `
   }
 >
   <div
-    className="Header"
+    className="header"
   >
     <div
-      className="Container"
+      className="container"
     >
       <img
         alt="hatch-react"
-        className="Header-logo"
+        className="logo"
         src="/img/react.svg"
         width="80"
       />
       <h1
-        className="Header-title"
+        className="title"
       >
         hatch-react
       </h1>
       <p
-        className="Header-subTitle"
+        className="subTitle"
       >
         A React starter kit
       </p>
       <nav
-        className="Header-navigation"
+        className="nav"
       >
         <a
           aria-current={false}
-          className="Header-navigation-item"
+          className="navItem"
           href="/"
           onClick={[Function]}
           style={undefined}
@@ -164,7 +164,7 @@ exports[`Storyshots Header with default state 1`] = `
         </a>
         <a
           aria-current={false}
-          className="Header-navigation-item"
+          className="navItem"
           href="/counter"
           onClick={[Function]}
           style={undefined}

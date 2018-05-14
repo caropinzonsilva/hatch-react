@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import HomeView from 'views/HomeView.jsx';
 import CounterView from 'views/CounterView.jsx';
 import NotFoundView from 'views/NotFoundView.jsx';
@@ -23,4 +24,4 @@ function AppView() {
   );
 }
 
-export default AppView;
+export default hot(module)(AppView);

@@ -14,16 +14,21 @@ function configureStore() {
     );
   }
 
-  /* eslint-disable no-underscore-dangle */
   const composeEnhancers =
     typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       : compose;
-  /* eslint-enable */
 
   const enhancer = composeEnhancers(applyMiddleware(...middlewares));
-
-  return createStore(reducer, enhancer);
+  const store = createStore(reducer, enhancer);
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('reducers/index.js', () => {
+      const nextRootReducer = require('reducers/index.js').default;
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+  return store;
 }
 
 export default configureStore;
