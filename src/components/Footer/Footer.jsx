@@ -1,10 +1,10 @@
 import React from 'react';
 import Container from 'components/Container/Container.jsx';
-import 'components/Footer/Footer.scss';
+import css from 'components/Footer/Footer.scss';
 
 function Footer() {
   return (
-    <footer className="Footer">
+    <footer className={css.footer}>
       <Container>
         <small>Made with ♥ by Axiom Zen</small>
       </Container>
