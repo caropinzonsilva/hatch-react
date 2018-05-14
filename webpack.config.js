@@ -25,6 +25,7 @@ const commonConfig = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -73,9 +74,15 @@ const commonConfig = {
           },
         ],
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   plugins: [

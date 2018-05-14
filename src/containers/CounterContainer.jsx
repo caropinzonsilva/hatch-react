@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { increment, decrement } from 'actions/count.js';
+import { increment, decrement } from 'actions/count';
 import Counter from 'components/Counter/Counter.jsx';
 
 function CounterContainer({ count, increment, decrement }) {
