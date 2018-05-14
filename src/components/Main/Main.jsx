@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'components/Container/Container.jsx';
-import 'components/Main/Main.scss';
+import css from 'components/Main/Main.scss';
 
 function Main({ children }) {
   return (
-    <main className="Main">
+    <main className={css.main}>
       <Container>{children}</Container>
     </main>
   );

@@ -2,10 +2,10 @@
 
 exports[`Basic render test 1`] = `
 <footer
-  className="Footer"
+  className="footer"
 >
   <div
-    className="Container"
+    className="container"
   >
     <small>
       Made with ♥ by Axiom Zen

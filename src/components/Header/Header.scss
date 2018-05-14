@@ -1,24 +1,24 @@
 @import "config.variables";
 @import "config.functions";
 
-.Header {
+.header {
   padding: gutter(lg) 0;
   background-color: $color-grey--9;
   text-align: center;
 }
 
-.Header-logo {
+.logo {
   display: block;
   margin: 0 auto gutter(xs) auto;
 }
 
-.Header-title {
+.title {
   margin: 0 0 gutter(xs) 0;
   padding: 0;
   color: #fff;
 }
 
-.Header-subTitle {
+.subTitle {
   margin: 0;
   padding: 0;
   color: $color-grey--5;
@@ -26,19 +26,19 @@
   text-transform: lowercase;
 }
 
-.Header-navigation {
+.nav {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: gutter(md);
 }
 
-.Header-navigation-item {
+.nav-item {
   margin: 0 gutter(sm);
   color: $color-grey--1;
   text-decoration: none;
 }
 
-.Header-navigation-item--isActive {
+.nav-item--isActive {
   text-decoration: underline;
 }

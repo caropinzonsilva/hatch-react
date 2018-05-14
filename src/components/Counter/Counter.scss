@@ -2,24 +2,24 @@
 
 $counter-dim: 4rem;
 
-.Counter {
+.counter {
   text-align: center;
 }
 
-.Counter-title {
+.title {
   margin: 0 0 2rem 0;
   padding: 0;
   font-size: 1.8rem;
   font-weight: 400;
 }
 
-.Counter-content {
+.content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Counter-count {
+.count {
   background: $color-grey--1;
   min-width: $counter-dim * 2;
   height: $counter-dim;
@@ -28,7 +28,7 @@ $counter-dim: 4rem;
   vertical-align: middle;
 }
 
-.Counter-button {
+.button {
   margin: 0;
   padding: 0;
   flex: 0 0 $counter-dim;

@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'components/Counter/Counter.scss';
+import css from 'components/Counter/Counter.scss';
 
 const Counter = ({ count, increment, decrement }) => (
-  <div className="Counter">
-    <h2 className="Counter-title">Counter Component</h2>
-    <div className="Counter-content">
-      <button type="button" className="Counter-button" onClick={decrement}>
+  <div className={css.counter}>
+    <h2 className={css.title}>Counter Component</h2>
+    <div className={css.content}>
+      <button type="button" className={css.button} onClick={decrement}>
         -
       </button>
-      <span className="Counter-count">{count}</span>
-      <button type="button" className="Counter-button" onClick={increment}>
+      <span className={css.count}>{count}</span>
+      <button type="button" className={css.button} onClick={increment}>
         +
       </button>
     </div>
