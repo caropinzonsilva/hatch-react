@@ -25,8 +25,14 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(compress());
   app.use(cookieParser());
-  app.use(express.static('dist'));
-  app.use(favicon(path.join(__dirname, '../dist/favicon/favicon.ico')));
+  app.use(
+    express.static(path.join(__dirname, '../../dist'), {
+      index: false,
+    }),
+  );
+  if (NODE_ENV === 'production') {
+    app.use(favicon(path.join(__dirname, '../../dist/favicon/favicon.ico')));
+  }
   app.use(helmet.frameguard('deny'));
   app.use(methodOverride());
   app.use(NODE_ENV === 'production' ? morgan('combined') : morgan('dev'));
