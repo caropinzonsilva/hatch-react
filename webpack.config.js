@@ -16,10 +16,16 @@ const configs = {
 };
 
 const NODE_ENV = process.env.NODE_ENV;
+const entryFiles = [path.join(__dirname, 'src/index.jsx')];
+
+console.log(NODE_ENV)
+if (NODE_ENV === 'development') {
+  entryFiles.push('webpack-hot-middleware/client?reload=true');
+}
 
 const commonConfig = {
   entry: {
-    index: path.join(__dirname, 'src/index.jsx'),
+    index: entryFiles,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
