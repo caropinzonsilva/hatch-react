@@ -20,7 +20,7 @@ const entryFiles = [path.join(__dirname, 'src/index.jsx')];
 
 console.log(NODE_ENV)
 if (NODE_ENV === 'development') {
-  entryFiles.push('webpack-hot-middleware/client?reload=true');
+  entryFiles.push('webpack-hot-middleware/client');
 }
 
 const commonConfig = {

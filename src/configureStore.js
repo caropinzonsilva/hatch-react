@@ -22,8 +22,16 @@ function configureStore() {
   /* eslint-enable */
 
   const enhancer = composeEnhancers(applyMiddleware(...middlewares));
-
-  return createStore(reducer, enhancer);
+  const store = createStore(reducer, enhancer);
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('reducers/index.js', () => {
+      // eslint-disable-next-line global-require
+      const nextRootReducer = require('reducers/index.js').default;
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+  return store;
 }
 
 export default configureStore;

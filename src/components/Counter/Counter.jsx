@@ -7,7 +7,7 @@ const Counter = ({ count, increment, decrement }) => (
     <h2 className="Counter-title">Counter Component</h2>
     <div className="Counter-content">
       <button type="button" className="Counter-button" onClick={decrement}>
-        - dad
+        -
       </button>
       <span className="Counter-count">{count}</span>
       <button type="button" className="Counter-button" onClick={increment}>
