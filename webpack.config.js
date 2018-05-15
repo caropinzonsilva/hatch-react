@@ -9,6 +9,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 
 const configs = {
   development: require(path.join(__dirname, 'webpack/development.js')),
@@ -30,6 +32,7 @@ const commonConfig = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -47,7 +50,7 @@ const commonConfig = {
         },
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(jsx?|tsx?)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -88,6 +91,7 @@ const commonConfig = {
     ],
   },
   resolve: {
+    extensions: ['.tsx', '.ts', 'jsx', '.js'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   plugins: [
@@ -139,6 +143,7 @@ const commonConfig = {
         windows: false,
       },
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
 };
 
