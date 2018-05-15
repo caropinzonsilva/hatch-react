@@ -21,13 +21,5 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  devServer: {
-    contentBase: path.join(__dirname, '../dist'),
-    compress: true,
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    port: '3000',
-  },
   devtool: 'cheap-eval-source-map',
 };

@@ -11,22 +11,19 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-
 const configs = {
   development: require(path.join(__dirname, 'webpack/development.js')),
   production: require(path.join(__dirname, 'webpack/production.js')),
 };
 
 const NODE_ENV = process.env.NODE_ENV;
-const entryFiles = [path.join(__dirname, 'src/index.jsx')];
-
-if (NODE_ENV === 'development') {
-  entryFiles.push('webpack-hot-middleware/client');
-}
 
 const commonConfig = {
   entry: {
-    index: entryFiles,
+    index: [
+      path.join(__dirname, 'src/index.jsx'),
+      ...(NODE_ENV === 'development' ? ['webpack-hot-middleware/client'] : []),
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
