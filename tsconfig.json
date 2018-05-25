@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
+    "module": "es6",
     "allowJs": true,
     "jsx": "react",
     "sourceMap": true,
@@ -10,6 +10,13 @@
     "strict": true,
     "noImplicitAny": true,
     "baseUrl": "src",
-    "allowSyntheticDefaultImports": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
+  },
+  "types": ["react", "jest"],
+  "exclude": ["node_modules"]
 }
