@@ -18,5 +18,8 @@
   "transform": {
     "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
     "^.+\\.tsx?$": "ts-jest"
-  }
+  },
+  "setupFiles": [
+    "<rootDir>/.jest.init.js"
+  ]
 }
