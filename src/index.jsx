@@ -20,7 +20,7 @@ function renderApp(ui) {
 
 renderApp(<AppView />);
 
-if (module.hot) {
+if (process.env.ENV === 'development' && module.hot) {
   module.hot.accept('views/AppView.jsx', () => {
     // eslint-disable-next-line global-require
     const UpdatedApp = require('views/AppView.jsx').default;
