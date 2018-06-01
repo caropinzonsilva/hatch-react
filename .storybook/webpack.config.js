@@ -4,6 +4,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+      {
         test: /\.(eot|ttf|otf|woff|woff2)$/,
         use: 'file-loader',
         exclude: /node_modules/,
@@ -20,16 +25,27 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+            options: {
+              camelCase: true,
+              // importLoaders: 2,
+              modules: true,
+              sourceMap: true,
+              url: false,
+            },
           },
           {
             loader: 'resolve-url-loader',
           },
           {
             loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
           },
           {
             loader: 'sass-loader',
             options: {
+              sourceMap: true,
               outputStyle: 'expanded',
               includePaths: [path.resolve(__dirname, '../src/styles')],
             },
@@ -40,6 +56,7 @@ module.exports = {
     ],
   },
   resolve: {
+    extensions: ['.tsx', '.ts', 'jsx', '.js'],
     modules: [path.resolve(__dirname, '../src'), 'node_modules'],
   },
 };

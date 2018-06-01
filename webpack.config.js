@@ -32,20 +32,24 @@ const commonConfig = {
   devtool: 'inline-source-map',
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            emitWarning: NODE_ENV === 'development',
-            emitError: NODE_ENV === 'production',
-            failOnWarning: NODE_ENV === 'production',
-            failOnError: NODE_ENV === 'production',
-          },
-        },
-      },
+      ...(NODE_ENV === 'development'
+        ? [
+            {
+              enforce: 'pre',
+              test: /\.jsx?$/,
+              exclude: /node_modules/,
+              use: {
+                loader: 'eslint-loader',
+                options: {
+                  emitWarning: NODE_ENV === 'development',
+                  emitError: NODE_ENV === 'production',
+                  failOnWarning: NODE_ENV === 'production',
+                  failOnError: NODE_ENV === 'production',
+                },
+              },
+            },
+          ]
+        : []),
       {
         test: /\.(jsx?|tsx?)$/,
         exclude: /node_modules/,
