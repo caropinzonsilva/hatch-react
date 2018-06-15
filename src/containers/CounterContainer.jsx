@@ -5,8 +5,21 @@ import { connect } from 'react-redux';
 import { increment, decrement } from 'actions/count';
 import Counter from 'components/Counter/Counter.jsx';
 
-function CounterContainer({ count, increment, decrement }) {
-  return <Counter count={count} increment={increment} decrement={decrement} />;
+class CounterContainer extends Component {
+  static childContextTypes = {
+    count: PropTypes.number.isRequired,
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,
+  };
+
+  getChildContext() {
+    const { count, decrement, increment } = this.props;
+    return { count, increment, decrement };
+  }
+
+  render() {
+    return <Counter />;
+  }
 }
 
 CounterContainer.propTypes = {
