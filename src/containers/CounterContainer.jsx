@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { increment, decrement } from 'actions/count';
+import React, { useMemo, useState } from 'react';
+import { create } from 'microstates';
 import Counter from 'components/Counter/Counter.jsx';
 
-function CounterContainer({ count, increment, decrement }) {
-  return <Counter count={count} increment={increment} decrement={decrement} />;
+function CounterContainer() {
+  const initialState = useMemo(() => create(Number, 0), [Number, 0]);
+  const [counter, setState] = useState(initialState);
+  return (
+    <Counter
+      count={counter.state}
+      increment={() => setState(counter.increment())}
+      decrement={() => setState(counter.decrement())}
+    />
+  );
 }
 
-CounterContainer.propTypes = {
-  count: PropTypes.number.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-};
-
-function mapStateToProps({ count }) {
-  return {
-    count,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ increment, decrement }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default CounterContainer;
