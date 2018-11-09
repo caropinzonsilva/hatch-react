@@ -1,26 +1,17 @@
-import React, { Component } from 'react';
-import { Store, create } from 'microstates';
+import React, { useMemo, useState } from 'react';
+import { create } from 'microstates';
 import Counter from 'components/Counter/Counter.jsx';
 
-class CounterContainer extends Component {
-  update = (counter) => {
-    this.setState({ counter });
-  };
-
-  state = {
-    counter: Store(create(Number, 0), this.update),
-  };
-
-  render() {
-    const { counter } = this.state;
-    return (
-      <Counter
-        count={counter.state}
-        increment={() => counter.increment()}
-        decrement={() => counter.decrement()}
-      />
-    );
-  }
+function CounterContainer() {
+  const initialState = useMemo(() => create(Number, 0), [Number, 0]);
+  const [counter, setState] = useState(initialState);
+  return (
+    <Counter
+      count={counter.state}
+      increment={() => setState(counter.increment())}
+      decrement={() => setState(counter.decrement())}
+    />
+  );
 }
 
 export default CounterContainer;
